@@ -1,7 +1,7 @@
 var userGenres = [];
 getGenres();
 
-var genres = "";
+var genresChoises = [];
 
 $("body").on("click", ".thumbnail",function(){
 	$('#detail').modal({
@@ -72,6 +72,7 @@ $("#submit-button").on("click",function(event){
 	if($("#Western").is(":checked")){
 		userGenres.push(genreMap["Western"]);
 	}
+	genresChoises = userGenres;
 
 	//joining for the pipe operator
 	genre = userGenres.join("|");
