@@ -3,10 +3,10 @@ var showTimeApi = "6uzdzbe7uny7nc23edk38r4d";
 
 var theaterMap = {};
 var showtimeArray = [];
-
+var localMovieArray = [];
 var lat = "";
 var long = "";
-
+var showtimesArray = [];
 var zipCode = "";
 
 //array to store what is playing locally
@@ -61,7 +61,7 @@ function getShowtimes(){
 	}
 	today = year + "-" + month + "-" + day;
 
-	zipCode = "33176";
+	//zipCode = "33128";
 	var showtimeURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate="+today+"&zip="+zipCode+"&api_key="+showTimeApi;
 
 	$.ajax({
@@ -96,13 +96,14 @@ function getShowtimes(){
 					console.log("Times: " + response[j].showtimes[i].dateTime);
 				}
 
-				var showtimesArray = response[j].showtimes;
+				showtimesArray = response[j].showtimes;
+				
+			}
+			//creates the theater map for clarity of times, 
 				showtimesArray.forEach(function(object){
 					theaterMap[object.theatre.name] += object.dateTime +", ";
 	  		
 	  			});
-
-			}
 			//add the map to the movie object
 	  			showtimeArray.push(new Showtimes(title, cast, theaterMap));
 	  }
@@ -138,5 +139,17 @@ function localPlayList(){
 
 	}
 
-	renderPoster(localListDisplay);
+	//here make full movie object
+	for(var i = 0; i < localListDisplay.length; i++){
+
+		var movie = new Movie(localListDisplay[i].title, localListDisplay[i].id, localListDisplay[i].year, localListDisplay[i].poster, 
+			localListDisplay[i].description, localListTimes[i].cast, localListTimes[i].theater);
+
+		//push into a more complete array
+		localMovieArray.push(movie);
+
+	}
+
+
+	renderPoster(localMovieArray);
 }

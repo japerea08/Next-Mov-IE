@@ -8,14 +8,19 @@ $("body").on("click", ".thumbnail",function(){
 	 keyboard: false
 	})
 
-	console.log($(this).attr("id"));
-
+	//attach the title to the modal
+	//get the info from localListTimes
+	$("#title").text($(this).attr("title"));
+	$("#cast").text($(this).attr("cast"))
 	getTrailerKey($(this).attr("id"));
 })
 
 $("#submit-button").on("click",function(event){
 	event.preventDefault();
 	console.log("click");
+
+	//getting zipcode
+	zipCode = $("#searchBox").val();
 	
 
 	if($("#Action").is(":checked")){
@@ -82,6 +87,7 @@ $("#submit-button").on("click",function(event){
 	getMovies(genre);
 });
 
+//needs array from showtimes for the cast or, combine the info...
 function renderPoster(array){
 	var movieContainer = $("#displayResults");
 	for(var i=0; i < array.length; i++) {
@@ -90,6 +96,8 @@ function renderPoster(array){
 		image.attr("src", array[i].poster);
 		image.attr("class", "thumbnail")
 		image.attr("id", array[i].id);
+		image.attr("title", array[i].title);
+		image.attr("cast", array[i].cast);
 		thumbnail.append(image);
 		movieContainer.append(thumbnail);	
 	}

@@ -17,13 +17,12 @@ var genreMap = {};
 var movieArray = [];
 
 //movie object constructor
-function Movie(title, id, year, poster, description, trailer, cast, showtimes){
+function Movie(title, id, year, poster, description, cast, showtimes){
 	this.title = title; //string that will hold title of movie
 	this.id = id;
 	this.year = year; //year the movie was made
 	this.poster = poster; //url for the poster
 	this.description = description; //description of the moview
-	this.trailer = trailer; //string of youtube trailer url
 	this.cast = cast; //an array of the cast members
 	this.showtimes = showtimes; //showtime object
 }
@@ -49,8 +48,6 @@ function getGenres() {
 
 	  console.log("map: " + JSON.stringify(genreMap));
 	  console.log(genreMap.Action);	
-	  //function to populate dropDowns
-	  //makeDropDown();
 
 	});
 }
