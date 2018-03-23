@@ -1,18 +1,12 @@
 //ajax for the ombd
-var genre = "romance";
-var posterURL = "http://image.tmdb.org/t/p/w185/";
 var apiKey = "api_key=b92306e1f36bdf25d4bbdf45b0e344e8";
 
-
+var posterURL = "http://image.tmdb.org/t/p/w185/";
 var discover = "/discover/movie?sort_by=popularity.desc";
 
 var queryURL = "https://api.themoviedb.org/3/movie/76341?api_key=" + apiKey;
 
 var genreReturn = "https://api.themoviedb.org/3/genre/movie/list?api_key=b92306e1f36bdf25d4bbdf45b0e344e8&language=en-US";
-
-
-
-var genreId = 28; //action movie for example purposes
 
 var genreArray;
 
@@ -21,11 +15,11 @@ var genreMap = {};
 
 //array that will hold all the movie objects
 var movieArray = [];
-var showtimes = [];
 
 //movie object constructor
-function Movie(title, year, poster, description, trailer, cast, showtimes){
+function Movie(title, id, year, poster, description, trailer, cast, showtimes){
 	this.title = title; //string that will hold title of movie
+	this.id = id;
 	this.year = year; //year the movie was made
 	this.poster = poster; //url for the poster
 	this.description = description; //description of the moview
@@ -45,19 +39,16 @@ function getGenres() {
 	  console.log(response);
 
 	  genreArray = response.genres;
-	  console.log(1);
 
 	  console.log("array: " + genreArray);
 	  //making the map
 	  genreArray.forEach(function(genre){
 	  	genreMap[genre.name] = genre.id;
-	  	console.log(2);
 
 	  });
 
 	  console.log("map: " + JSON.stringify(genreMap));
 	  console.log(genreMap.Action);	
-	  console.log(3);
 	  //function to populate dropDowns
 	  //makeDropDown();
 
@@ -81,29 +72,40 @@ function getMovies(genreId){
 	  for(var i = 0; i < movieNameArray.length; i++){
 	  	//console.log("Title: " + movieNameArray[i].title + " (" + movieNameArray[i].release_date+")");
 	  	var title = movieNameArray[i].title;
-	  	var year = movieNameArray[i].release_date
+
+	  	var id = movieNameArray[i].id;
+
+	  	var year = movieNameArray[i].release_date;
 	  	//console.log("Overview: " + movieNameArray[i].overview);
 	  	var description  = movieNameArray[i].overview;
 	  	//console.log("Poster Path: " + posterURL + movieNameArray[i].poster_path);
 	  	var poster = posterURL + movieNameArray[i].poster_path;
 	  	//console.log("------------------------------------------------");
 	  	//create the movie object
-	  	var movie = new Movie(title, year, poster, description);
+	  	var movie = new Movie(title, id, year, poster, description);
 	  	//push the movie objects into an array
 	  	movieArray.push(movie);
 	  }	
 	  renderPoster(movieArray);
-	  
 
+	  //to get the showtimes
+	  getShowtimes();
 	});
 
 }
 
-function buildMovieArray(genreId, callback){
-	return callback(genreId);
+function compare(a, b) {
+  // Use toUpperCase() to ignore character casing
+  const movieA = a.title.toUpperCase();
+  const movieB = b.title.toUpperCase();
+
+  let comparison = 0;
+  if (movieA > movieB) {
+    comparison = 1;
+  } else if (movieA < movieB) {
+    comparison = -1;
+  }
+  return comparison;
 }
 
-//function to get the trailer of the movie via movieDB ID
-function getTrailer(movieID){
-
-}
+bands.sort(compare);

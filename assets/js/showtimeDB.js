@@ -4,6 +4,29 @@ var showTimeApi = "6uzdzbe7uny7nc23edk38r4d";
 var theaterMap = {};
 var showtimeArray = [];
 
+var lat = "";
+var long = "";
+
+var zipCode = "";
+
+//function 
+function initLocation(zip){
+	//ask user current location here
+	//this does not ask the user if they are okay giving their current location
+	if(navigator.geolocation()){
+		navigator.geolocation.getCurrentPosition(function(position){
+			lat = position.coords.latitude;
+			long = position.coords.longitude;
+		});
+	}
+	else if(zip.length != 0){
+		zipCode = zip;
+	}
+	else{
+		//alert, user needs to enter a zipcode
+	}
+}
+
 
 
 //showtime objects constructor
@@ -34,7 +57,7 @@ function getShowtimes(){
 	}
 	today = year + "-" + month + "-" + day;
 
-	var zipCode = "33176";
+	zipCode = "33176";
 	var showtimeURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate="+today+"&zip="+zipCode+"&api_key="+showTimeApi;
 
 	$.ajax({
@@ -56,12 +79,6 @@ function getShowtimes(){
 
 		  	}
 		  	if(typeof response[j].topCast != "undefined"){
-		  		//get the case of the movie
-		  		/*for(var k = 0; k < response[j].topCast.length; k++){
-		  			console.log("Cast: " + response[j].topCast[k]);
-		  			var cast = push(response[j].topCast[k]);
-
-		  		}*/
 		  		console.log("Cast as an array: " + response[j].topCast);
 		  		var cast = response[j].topCast;
 		  	}
@@ -86,4 +103,10 @@ function getShowtimes(){
 	  			showtimeArray.push(new Showtimes(title, cast, theaterMap));
 	  }	
 	});
+}
+
+//function that will combine what is playing locally 
+function localPlayList(){
+
+
 }
