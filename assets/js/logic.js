@@ -63,13 +63,9 @@ $("#submit-button").on("click",function(event){
 		userGenres.push(genreMap["Western"]);
 	}
 
-
-
-	for (var i =0; i < userGenres.length; i++) {
-		//make strng for genre
-		genre = userGenres[i];
-
-	}
+	//joining for the pipe operator
+	genre = userGenres.join("|");
+	console.log("what:" + genre);	
 	
 
 	getMovies(genre);
@@ -86,7 +82,3 @@ function renderPoster(array){
 		movieContainer.append(thumbnail);	
 	}
 };
-
-
-
-
