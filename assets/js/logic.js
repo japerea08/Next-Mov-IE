@@ -17,74 +17,24 @@ $("body").on("click", ".thumbnail",function(){
 
 $("#submit-button").on("click",function(event){
 	event.preventDefault();
-	console.log("click");
-
 	//getting zipcode
 	zipCode = $("#searchBox").val();
 	
-
-	if($("#Action").is(":checked")){
-		userGenres.push(genreMap["Action"]);
-	}
-	if($("#Adventure").is(":checked")){
-		userGenres.push(genreMap["Adventure"]);
-	}
-	if($("#Animation").is(":checked")){
-		userGenres.push(genreMap["Animation"]);
-	}
-	if($("#Comedy").is(":checked")){
-		userGenres.push(genreMap["Comedy"]);
-	}
-	if($("#Crime").is(":checked")){
-		userGenres.push(genreMap["Crime"]);
-	}
-	if($("#Documentery").is(":checked")){
-		userGenres.push(genreMap["Documentery"]);
-	}
-	if($("#Drama").is(":checked")){
-		userGenres.push(genreMap["Drama"]);
-	}
-	if($("#Family").is(":checked")){
-		userGenres.push(genreMap["Family"]);
-	}
-	if($("#Fantasy").is(":checked")){
-		userGenres.push(genreMap["Fantasy"]);
-	}
-	if($("#History").is(":checked")){
-		userGenres.push(genreMap["History"]);
-	}
-	if($("#Horror").is(":checked")){
-		userGenres.push(genreMap["Horror"]);
-	}
-	if($("#Music").is(":checked")){
-		userGenres.push(genreMap["Music"]);
-	}
-	if($("#Mystery").is(":checked")){
-		userGenres.push(genreMap["Mystery"]);
-	}
-	if($("#Romance").is(":checked")){
-		userGenres.push(genreMap["Romance"]);
-	}
-	if($("#Science-Fiction").is(":checked")){
-		userGenres.push(genreMap["Science-Fiction"]);
-	}
-	if($("#Thriller").is(":checked")){
-		userGenres.push(genreMap["Thriller"]);
-	}
-	if($("#War").is(":checked")){
-		userGenres.push(genreMap["War"]);
-	}
-	if($("#Western").is(":checked")){
-		userGenres.push(genreMap["Western"]);
-	}
-	genresChoises = userGenres;
-
+	//This method reset the array userGenras to [] and 
+	//populate it again with the values of the cheched boxes.
+	userGenres = getPref(); 
+	
 	//joining for the pipe operator
 	genre = userGenres.join("|");
 	console.log("what:" + genre);	
 	
+	//This method gets the array of preferences and the uid that is currently
+	//saved in the sessioStorage and update the information in firebase
+	updateUserSetting(sessionStorage.currentUser, userGenres, zipCode);
 
+	//This methos is to populate the list of movies.
 	getMovies(genre);
+	
 });
 
 //needs array from showtimes for the cast or, combine the info...
