@@ -4,11 +4,8 @@
     authDomain: "next-mov-e.firebaseapp.com",
     databaseURL: "https://next-mov-e.firebaseio.com",
     projectId: "next-mov-e",
-    storageBucket: "",
+    storageBucket: "next-mov-e.appspot.com",
     messagingSenderId: "903599019806"
   };
   firebase.initializeApp(config);
-
   
-
-	
