@@ -16,6 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="assets/js/movieDB.js"></script>
   <script type="text/javascript" src="assets/js/showtimeDB.js"></script>
+  <script type="text/javascript" src="assets/js/trailerCall.js"></script>
 </head>
 
 <body>
@@ -175,19 +176,65 @@
       footer content goes here
     </footer>
   </div>
+
+  <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+ <div class="modal-dialog modal-lg" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h1 class="modal-title" id="title"></h1>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+        <div class="row">
+        <div class="col-md-4 image" id="poster">
+          <img src=""></img>
+        </div>
+        <div class="panel panel-default">
+        <div class="panel-body">
+        <div class="col-md-offset-4 col-md-8 embed-responsive embed-responsive-16by9" id="Trailers">
+          <iframe id="frame">frame</iframe>
+          
+         </div>
+        </div>
+        </div> 
+        </div>
+        <div class="row">
+          <div class="col-md-4 image" id="Actors">
+            <h4> Cast Overview:</h4>
+            <ol class="people no_image">
+              <li class="profile">
+                <p>
+                <a href=""></a>
+                </p>
+              </li>
+            </ol>
+        </div>
+
+          <div class="col-md-8" id="description">
+            <div class="panel panel-default">
+            <div class="panel-body">
+            <h5></h5>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary">Buy Tickets</button>
+     </div>
+   </div>
+ </div>
+</div>
   <!-- very important for modal works -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
-
+  <script type="text/javascript" src="assets/js/authentication.js"></script>
   <script type="text/javascript" src="assets/js/logic.js"></script>
-  <script type="text/javascript" src="assets/js/authentication.js"></script>
-
-=======
-  <script type="text/javascript" src="assets/js/authentication.js"></script>
->>>>>>> 87c6f45... a lot of canges to index and authentication
 </body>
 
 </html>

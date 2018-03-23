@@ -108,4 +108,4 @@ function compare(a, b) {
   return comparison;
 }
 
-bands.sort(compare);
+//bands.sort(compare);

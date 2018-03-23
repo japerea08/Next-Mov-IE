@@ -3,6 +3,16 @@ getGenres();
 
 var genres = "";
 
+$("body").on("click", ".thumbnail",function(){
+	$('#detail').modal({
+	 keyboard: false
+	})
+
+	console.log($(this).attr("id"));
+
+	getTrailerKey($(this).attr("id"));
+})
+
 $("#submit-button").on("click",function(event){
 	event.preventDefault();
 	console.log("click");
@@ -78,6 +88,7 @@ function renderPoster(array){
 		var image = $("<img>");
 		image.attr("src", array[i].poster);
 		image.attr("class", "thumbnail")
+		image.attr("id", array[i].id);
 		thumbnail.append(image);
 		movieContainer.append(thumbnail);	
 	}

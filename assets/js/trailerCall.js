@@ -1,4 +1,4 @@
-var trailerKey = "";
+var trailerKey = "https://www.youtube.com/embed/";
 //var movieId = "284054";
 //function that will be called when the modal is called
 function getTrailerKey(movieId){
@@ -11,10 +11,17 @@ function getTrailerKey(movieId){
 		console.log(response.results);
 		for(var i = 0; i < response.results.length; i++){
 			if(response.results[i].name == "Official Trailer"){
-				trailerKey = response.results[i].key;
+				trailerKey += response.results[i].key;
 			}
 		}
 		console.log("Trailer Key is: " + trailerKey);
+		buildIFrame(trailerKey);
 	});
 
 };
+
+function buildIFrame(key){
+	console.log(key);
+	var frame = $("#frame");
+	frame.attr("src", key);
+}
