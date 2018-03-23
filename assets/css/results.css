@@ -1,0 +1,48 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+.wrap{
+  /* background-color: #eaeeff; */
+  /* color: white; */
+  height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+footer {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-image: url('../img/home-bg.png');
+}
+.header-wrap{
+  color: white;
+  background-image: url('../img/home-bg.png');
+}
+header h1{
+  font-family: 'Monoton', sans-serif !important;
+}
+#pageTitle{
+  border-bottom: none;
+}
+#rightPanel{
+  border-left: 1px solid;
+}
+.spacer{
+  height: 15px;
+}
+.thumbnail{
+  max-width: 200px;
+  float: left;
+  display: inline-block;
+  margin-right: 10px;
+}
+#submit-button{
+  margin-top: 10px;
+  margin-bottom:30px;
+}

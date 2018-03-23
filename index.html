@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Your Next Mov-E</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- reset for browser optimization -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!-- local styesheet -->
+  <link rel="stylesheet" type="text/css" href="assets/css/indexstyle.css">
+  <!-- bootstrap cdn -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- link google font -->
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Boogaloo|Julius+Sans+One|Monoton|Syncopate" rel="stylesheet">
+  <!-- Firebase UI Styles-->
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+</head>
+
+<body>
+  <!-- Wrap all page content here -->
+  <div id="wrap">
+    <!-- I added this header so we can overlay on a jpg-->
+    <header class="masthead" style="background-image: url('assets/img/home-bg.png')">
+      <div class="overlay">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-10 col-mx-auto">
+              <div class="site-heading">
+                <!-- this line will be our logo using a google font-->
+                <h1>Your Next Mov-E</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Login Form Area -->
+    <div class="container-fluid" id="introForm">
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <div id="firebaseui-auth-container"></div>
+          <div id="loader">
+            <img src="assets/img/loading.gif" alt="Loading Icon">
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+
+    <!-- This is the modal code for the sign up form -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createAccountLabel">Create Your Next Mov-E Account</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Username:</label>
+                <input type="text" class="form-control" id="newUsername">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Password:</label>
+                <input type="text" class="form-control" id="newPassword">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="createButton">Create Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <!-- once is ready, we can use this to link in ea/portfolio -->
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-lg-12 col-md-10 col-mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <br>
+          <p class="copyright text-muted">Copyright &copy; 2018</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="assets/js/app.js"></script> -->
+  <script type="text/javascript" src="assets/js/firebase.js"></script>
+  <script type="text/javascript" src="assets/js/authentication.js"></script>
+
+  <script>
+    // this code is for the pop up signup form
+
+    $('#myModal').modal({
+      keyboard: false
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Your Next Mov-E</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <!-- reset for browser optimization -->
+ <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+ <!-- local styesheet -->
+ <link rel="stylesheet" type="text/css" href="assets/css/detail.CSS">
+ <!-- bootstrap cdn -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <!-- link google font -->
+ <link href="https://fonts.googleapis.com/css?family=Audiowide|Boogaloo|Julius+Sans+One|Monoton|Syncopate" rel="stylesheet">
+</head>
+<body>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detail">
+ Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+ <div class="modal-dialog modal-lg" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h1 class="modal-title" id="title"></h1>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+        <div class="row">
+        <div class="col-md-4 image" id="poster">
+          <img src=""></img>
+        </div>
+        <div class="panel panel-default">
+        <div class="panel-body">
+        <div class="col-md-offset-4 col-md-8 embed-responsive embed-responsive-16by9" id="Trailers">
+          <iframe style="border:20px"; allowfullscreen></iframe>
+         </div>
+        </div>
+        </div> 
+        </div>
+        <div class="row">
+          <div class="col-md-4 image" id="Actors">
+            <h4> Cast Overview:</h4>
+            <ol class="people no_image">
+              <li class="profile">
+                <p>
+                <a href=""></a>
+                </p>
+              </li>
+            </ol>
+        </div>
+
+          <div class="col-md-8" id="description">
+            <div class="panel panel-default">
+            <div class="panel-body">
+            <h5></h5>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary">Buy Tickets</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/app.js"></script> -->
+    <script type="text/javascript" src="assets/js/firebase.js"></script>
+    <script type="text/javascript" src="assets/js/authentication.js"></script>
+   <script>
+// this code is for the pop up signup form
+
+$('#myModal').modal({
+ keyboard: false
+})
+   </script>
+</body>
+</html>

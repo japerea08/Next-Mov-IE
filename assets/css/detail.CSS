@@ -1,0 +1,18 @@
+body {
+    height: 100%;
+    font-family: 'Boogaloo' !important; 
+}
+
+.modal-title {
+	font-family: 'Boogaloo' !important;
+	font-size: 50px;
+	color: darkblue;
+}
+
+.modal-header, .modal-footer {
+	background-color: lightgray;
+}
+
+h4 {
+	color: darkblue !important; 
+}
