@@ -41,7 +41,14 @@ header h1{
   float: left;
   display: inline-block;
   margin-right: 10px;
+    cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
+.thumbnail:hover{
+      box-shadow: 1px 1px 10px 1px #030303;
+}
+
 #submit-button{
   margin-top: 10px;
   margin-bottom:30px;
