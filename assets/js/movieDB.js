@@ -86,10 +86,11 @@ function getMovies(genreId){
 	  	//push the movie objects into an array
 	  	movieArray.push(movie);
 	  }	
-	  renderPoster(movieArray);
+	  
 
 	  //to get the showtimes
 	  getShowtimes();
+	  movieArray.sort(compare);
 	});
 
 }
@@ -106,6 +107,5 @@ function compare(a, b) {
     comparison = -1;
   }
   return comparison;
-}
 
-//bands.sort(compare);
+}

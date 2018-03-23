@@ -9,6 +9,10 @@ var long = "";
 
 var zipCode = "";
 
+//array to store what is playing locally
+var localListDisplay = [];
+var localListTimes = [];
+
 //function 
 function initLocation(zip){
 	//ask user current location here
@@ -101,12 +105,38 @@ function getShowtimes(){
 			}
 			//add the map to the movie object
 	  			showtimeArray.push(new Showtimes(title, cast, theaterMap));
-	  }	
+	  }
+	  showtimeArray.sort(compare);
+	  localPlayList();	
 	});
 }
 
 //function that will combine what is playing locally 
 function localPlayList(){
+	//check to see if it exist
+	//choose the smaller size to dictate
+	if(movieArray.length > showtimeArray.length){
+		//based off showtime
+		for(var i = 0; i < showtimeArray.length; i++){
+			for(var j = 0; j < movieArray.length; j++){
+				if(showtimeArray[i].title == movieArray[j].title && typeof showtimeArray[i].title != "undefined" && typeof movieArray[j].title != "undefined"){
+					localListTimes.push(showtimeArray[i]);
+					localListDisplay.push(movieArray[j]);
+				}
+			}
+		}
+	}
+	else{
+		for(var i = 0; i < movieArray.length; i++){
+			for(var j = 0; j < showtimeArray.length; j++){
+				if(showtimeArray[j].title == movieArray[i].title && typeof showtimeArray[j].title != "undefined" && typeof movieArray[i].title != "undefined"){
+					localListTimes.push(showtimeArray[j]);
+					localListDisplay.push(movieArray[i]);
+				}
+			}
+		}
 
+	}
 
+	renderPoster(localListDisplay);
 }
