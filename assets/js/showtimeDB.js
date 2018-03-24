@@ -71,7 +71,7 @@ function getShowtimes(){
 	today = year + "-" + month + "-" + day;
 
 	//zipCode = "33128";
-	var showtimeURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate="+today+"&zip="+zipCode+"&api_key="+showTimeApi;
+	var showtimeURL = "https://data.tmsapi.com/v1.1/movies/showings?startDate="+today+"&zip="+zipCode+"&api_key="+showTimeApi;
 
 	$.ajax({
 	  url: showtimeURL,
