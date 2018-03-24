@@ -22,7 +22,12 @@ $("#submit-button").on("click",function(event){
 	
 	//This method reset the array userGenras to [] and 
 	//populate it again with the values of the cheched boxes.
-	userGenres = getPref(); 
+	userGenres = getPref();
+
+	//DO NOT DELETE, YOU NEED TO PASS THE GENRE AS A NUMBER
+	for(var i = 0; i < userGenres.length; i++){
+		userGenres[i] = genreMap[userGenres[i]];
+	} 
 	
 	//joining for the pipe operator
 	genre = userGenres.join("|");
