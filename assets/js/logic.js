@@ -1,7 +1,27 @@
 var userGenres = [];
 getGenres();
+//Thnis method is automaticali populatin the list of preferences and
+function populateCheckList(list) {
+	var $checkboxList = $('<div>');
 
-var genresChoises = [];
+	$.each(list, function(key, value){
+
+		var $checkbox = $('<div class="form-check">');
+		var $label = $('<label class="form-check-label">');
+		var $cbx = $('<input type="checkbox" class="form-check-input">');
+		$cbx.attr('id', key);
+		$cbx.attr('value', value);
+		$cbx.appendTo($checkbox);
+		$label.attr('for', key);
+		$label.append(" " + key);
+		$label.appendTo($checkbox);
+		$checkbox.appendTo($checkboxList);
+	});
+	/* This code appends the list of checkboxes that 
+	was created to the #checkList element in the DOM */
+	// $checkboxList.appendTo($('#checkList'));
+	$checkboxList.appendTo($('#checkList'));
+}
 
 $("body").on("click", ".thumbnail",function(){
 	$('#detail').modal({
@@ -25,9 +45,9 @@ $("#submit-button").on("click",function(event){
 	userGenres = getPref();
 
 	//DO NOT DELETE, YOU NEED TO PASS THE GENRE AS A NUMBER
-	for(var i = 0; i < userGenres.length; i++){
-		userGenres[i] = genreMap[userGenres[i]];
-	} 
+	// for(var i = 0; i < userGenres.length; i++){
+	// 	userGenres[i] = genreMap[userGenres[i]];
+	// }    this is no longer needed because we are getting the numbers directly
 	
 	//joining for the pipe operator
 	genre = userGenres.join("|");

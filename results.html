@@ -38,127 +38,18 @@
     <div class="container-fluid">
       <div class="row" height="100%">
         <div class="col col-sm-3">
-          <aside class="pannel panel-default">
+          <aside id="leftPanel" class="pannel panel-default" >
             <div class="panel-body">
               <form>
                 <div class="form-group">
                   <label for="searchBox">Location</label>
                   <input type="text" class="form-control" id="searchBox" placeholder="ZIP Code">
                 </div>
-                <div class="form-group">
-                  <label for="preferenceBox">Genre</label>
-                  <form> <br>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Action" id="Action">
-                    <label class="form-check-label" for="Action">
-                      Action
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Adventure" id="Adventure">
-                    <label class="form-check-label" for="Adventure">
-                      Adventure
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Animation" id="Animation">
-                    <label class="form-check-label" for="Animation">
-                      Animation
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Comedy" id="Comedy">
-                    <label class="form-check-label" for="Comedy">
-                      Comedy
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Crime" id="Crime">
-                    <label class="form-check-label" for="Crime">
-                      Crime
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Documentary" id="Documentary">
-                    <label class="form-check-label" for="Documentary">
-                      Documentery
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Drama" id="Drama">
-                    <label class="form-check-label" for="Drama">
-                      Drama
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Family" id="Family">
-                    <label class="form-check-label" for="Family">
-                      Family
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Fantasy" id="Fantasy">
-                    <label class="form-check-label" for="Fantasy">
-                      Fantasy
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="History" id="History">
-                    <label class="form-check-label" for="History">
-                      History
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Horror" id="Horror">
-                    <label class="form-check-label" for="Horror">
-                      Horror
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Music" id="Music">
-                    <label class="form-check-label" for="Music">
-                      Music
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Mystery" id="Mystery">
-                    <label class="form-check-label" for="Mystery">
-                      Mystery
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Romance" id="Romance">
-                    <label class="form-check-label" for="Romance">
-                      Romance
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Science Fiction" id="Science Fiction">
-                    <label class="form-check-label" for="Science Fiction">
-                     Science Fiction
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Thriller" id="Thriller">
-                    <label class="form-check-label" for="Thriller">
-                     Thriller
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="War" id="War">
-                    <label class="form-check-label" for="War">
-                     War
-                    </label>
-                    </div>
-                     <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Western" id="Western">
-                    <label class="form-check-label" for="Western">
-                     Western
-                    </label>
-                    </div>
-                  <input type="submit" class="btn btn-primary" value="Submit" id="submit-button">
-                  </form>
+                <label>Genre</label>
+                <div id="checkList">
+                  <!-- container div for the checkboxes -->
                 </div>
+                <input type="submit" class="btn btn-primary" value="Submit" id="submit-button">
               </form>
             </div>
           </aside>
@@ -168,68 +59,67 @@
             <div id="displayResults" class="panel-body">
               <!-- here is where the thumbnails go -->
             </div>
-
+          </section>
         </div>
-        </section>
       </div>
     </div>
   </div>
   <div class="spacer"></div>
   </div>
-  <div class="footer-wrap">
+  <!-- <div class="footer-wrap"> -->
     <footer class="container-fluid">
-      copyright 2018
+      &copy Copyright 2018
     </footer>
-  </div>
+  <!-- </div> -->
 
   <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
- <div class="modal-dialog modal-lg" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h1 class="modal-title" id="title"></h1>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-        <div class="row">
-        <div class="col-md-4 image" id="poster">
-          <img src=""></img>
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="title"></h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="panel panel-default">
-        <div class="panel-body">
-        <div class="col-md-offset-4 col-md-8 embed-responsive embed-responsive-16by9" id="Trailers">
-          <iframe id="frame">frame</iframe>
-          
-         </div>
-        </div>
-        </div> 
-        </div>
-        <div class="row">
-            <div class="col-md-4">  
-              <h4> Cast Overview:</h4>
-                <h5 id = "cast"></h5>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4 image" id="poster">
+              <img src=""></img>
             </div>
-
-          <div class="col-md-8" id="description">
             <div class="panel panel-default">
               <div class="panel-body">
+                <div class="col-md-offset-4 col-md-8 embed-responsive embed-responsive-16by9" id="Trailers">
+                  <iframe id="frame">frame</iframe>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <h4> Cast Overview:</h4>
+              <h5 id="cast"></h5>
+            </div>
+
+            <div class="col-md-8" id="description">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Buy Tickets</button>
         </div>
-     <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary">Buy Tickets</button>
-     </div>
-   </div>
- </div>
-</div>
+      </div>
+    </div>
+  </div>
   <!-- very important for modal works -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="assets/js/firebase.js"></script>
   <!-- <script type="text/javascript" src="assets/js/authentication.js"></script> -->

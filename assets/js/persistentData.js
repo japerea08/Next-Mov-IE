@@ -16,8 +16,8 @@ function getPref(){
   var pref =[];
   $('.form-check-input').each(function (e) {
     if ($(this).is(':checked')){
-      var id = $(this).attr('id');
-      pref.push(id);
+      var value = $(this).attr('value');
+      pref.push(value);
     }
   });
   console.log('The list of preferences is: ' + pref)
