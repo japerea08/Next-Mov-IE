@@ -10,10 +10,12 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  font-family: 'Boogaloo' !important; 
 }
 footer {
   color: white;
   position: absolute;
+  font-family: 'Boogaloo' !important; 
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -52,4 +54,18 @@ header h1{
 #submit-button{
   margin-top: 10px;
   margin-bottom:30px;
+}
+
+.modal-title {
+	font-family: 'Boogaloo' !important;
+	font-size: 50px;
+	color: darkblue;
+}
+
+.modal-header, .modal-footer {
+  background-color: lightgray;
+}
+
+h4 {
+	color: darkblue !important; 
 }
