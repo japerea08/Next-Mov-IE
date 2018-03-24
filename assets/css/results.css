@@ -81,3 +81,7 @@ h5{
 #Trailers{
   float: left;
 }
+#showtimes{
+  height: 40vw;
+  overflow: scroll;
+}
