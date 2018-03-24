@@ -23,3 +23,10 @@ function getPref(){
   console.log('The list of preferences is: ' + pref)
   return pref;
 }
+
+function retrieveUserData(){
+  $('#userFullName').text(sessionStorage.username);
+  
+  var u = database.ref('users/' + sessionStorage.currentUser);
+  return u;
+}
