@@ -62,7 +62,7 @@ function getMovies(genreId){
 	  url: movieSearch,
 	  method: "GET"
 	}).then(function(response) {
-	  console.log(response);
+	  console.log("Inside getMovies: " + response);
 	  //get the name of the movie
 	  var movieNameArray = response.results;
 	  //console.log(movieNameArray);
