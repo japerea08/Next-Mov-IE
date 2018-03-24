@@ -31,9 +31,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 		// User is signed in.
 		console.log(user);
 		sessionStorage.setItem("currentUser", user.uid);
+		sessionStorage.setItem("userName", user.displayName);
 	} else {
 		// No user is signed in.
-		ui.start('#firebaseui-auth-container', uiConfig);
+		console.log('Error With the authentication');
 	}
 });
 
