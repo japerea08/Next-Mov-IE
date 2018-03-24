@@ -48,7 +48,7 @@ function getGenres() {
 
 	  console.log("map: " + JSON.stringify(genreMap));
 	  console.log(genreMap.Action);	
-
+		populateCheckList(genreMap);
 	});
 }
 
@@ -69,9 +69,7 @@ function getMovies(genreId){
 	  for(var i = 0; i < movieNameArray.length; i++){
 	  	//console.log("Title: " + movieNameArray[i].title + " (" + movieNameArray[i].release_date+")");
 	  	var title = movieNameArray[i].title;
-
 	  	var id = movieNameArray[i].id;
-
 	  	var year = movieNameArray[i].release_date;
 	  	//console.log("Overview: " + movieNameArray[i].overview);
 	  	var description  = movieNameArray[i].overview;

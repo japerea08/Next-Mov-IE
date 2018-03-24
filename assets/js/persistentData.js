@@ -16,17 +16,38 @@ function getPref(){
   var pref =[];
   $('.form-check-input').each(function (e) {
     if ($(this).is(':checked')){
-      var id = $(this).attr('id');
-      pref.push(id);
+      var value = $(this).attr('value');
+      pref.push(value);
     }
   });
   console.log('The list of preferences is: ' + pref)
   return pref;
 }
 
-function retrieveUserData(){
-  $('#userFullName').text(sessionStorage.username);
-  
-  var u = database.ref('users/' + sessionStorage.currentUser);
-  return u;
+function retrieveUserData(db, uid){
+  $('#userFullName').text(sessionStorage.userName);
+  var userData = {
+    zip: "",
+    pref: ""
+  };
+  db.ref('users/' + uid).once('value').then(function(snapshot) {
+    userData.zip = snapshot.val().zip;
+    userData.pref = snapshot.val().pref;
+    
+    //updateCheckList(userData.zip, userData.pref);
+  });
+  return userData;
+}
+retrieveUserData(database, sessionStorage.currentUser);
+database.ref('users/' + uid).on('value', function (snapshot) {
+  userDB = retrieveUserData(database, sessionStorage.currentUser);
+  updateCheckList(genreMap, userDB);
+});
+function updateCheckList(zip, list){
+  $("#searchBox").val() = zip;
+  $('.form-check-input').each(function (e) {
+    if ($(this).attr('value').indexOf(list) > -1) {
+      $(this).prop('checked', true);
+    }
+  });
 }
