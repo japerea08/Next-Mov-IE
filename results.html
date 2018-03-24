@@ -193,17 +193,18 @@
      </div>
      <div class="modal-body">
         <div class="row">
-        <div class="col-md-4 image" id="poster">
-          <img src=""></img>
-        </div>
-        <div class="panel panel-default">
-        <div class="panel-body">
-        <div class="col-md-offset-4 col-md-8 embed-responsive embed-responsive-16by9" id="Trailers">
-          <iframe id="frame">frame</iframe>
-          
-         </div>
-        </div>
-        </div> 
+          <div class="col-md-4" id="times">
+            <h4>Showtimes</h4>
+            <div id= "showtimes"></div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="col-md-8 embed-responsive embed-responsive-16by9" id="Trailers">
+                <iframe id="frame">frame</iframe>
+                
+               </div>
+            </div>
+          </div> 
         </div>
         <div class="row">
             <div class="col-md-4">  
@@ -212,8 +213,10 @@
             </div>
 
           <div class="col-md-8" id="description">
+            <h4>Description:</h4>
             <div class="panel panel-default">
               <div class="panel-body">
+                <p id="descriptionText"></p>
               </div>
             </div>
           </div>
@@ -221,7 +224,7 @@
         </div>
      <div class="modal-footer">
        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary">Buy Tickets</button>
+       <button type="button" class="btn btn-primary" onclick="window.open('https://www.fandango.com/','_blank')">Buy Tickets</button>
      </div>
    </div>
  </div>

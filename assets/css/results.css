@@ -69,3 +69,15 @@ header h1{
 h4 {
 	color: darkblue !important; 
 }
+
+h5{
+  color: darkblue !important; 
+}
+
+#times{
+  float: left; 
+}
+
+#Trailers{
+  float: left;
+}

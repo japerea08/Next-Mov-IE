@@ -10,6 +10,7 @@ var long = "";
 var showtimesArray = [];
 var zipCode = "";
 
+
 //array to store what is playing locally
 var localListDisplay = [];
 var localListTimes = [];
@@ -40,6 +41,12 @@ function Showtimes(title, cast, theater){
 	this.cast = cast;
 	//it will be a theater object that is passed in
 	this.theater = theater;
+};
+
+//theater object
+function Theater(name, times){
+	this.name = name;
+	this.times = times;
 };
 
 
@@ -75,6 +82,7 @@ function getShowtimes(){
 	  console.log(response);
 	  console.log("Response size: " +response.length);
 	  for(var j = 0; j < response.length; j++){
+	  	var theaters = [];
 		  	//get the title of the movie
 		  	if(typeof response[j].title != "undefined"){
 		  		console.log("----------------------------------")
@@ -91,27 +99,47 @@ function getShowtimes(){
 			//get the theater which is contained in an array of showtime
 			for(var i = 0; i < response[j].showtimes.length; i++){
 				if(typeof response[j].showtimes[i].theatre.name != "undefined"){
-					console.log("Theater: " + response[j].showtimes[i].theatre.name);
+					var theaterName = response[j].showtimes[i].theatre.name; 
+					console.log("Theater: " + theaterName);
+					if(theaters.length == 0){
+						theaters.push(new Theater(theaterName));
+					}
+					else if(search(theaterName, theaters) == -1){
+						theaters.push(new Theater(response[j].showtimes[i].theatre.name));
+					}
 				}
 				if(typeof response[j].showtimes[i].dateTime != "undefined"){
 					console.log("Times: " + response[j].showtimes[i].dateTime);
+					//response[j].showtimes[0].ticketURI
+					//search to add
+					var index = search(theaterName, theaters);
+					if(index >= 0){
+						theaters[index].times += response[j].showtimes[i].dateTime+",";
+					}
+
 				}
 
 				showtimesArray = response[j].showtimes;
 				
 			}
-			//creates the theater map for clarity of times, 
-				showtimesArray.forEach(function(object){
-					theaterMap[object.theatre.name] += object.dateTime +", ";
-	  		
-	  			});
-			//add the map to the movie object
-	  			showtimeArray.push(new Showtimes(title, cast, theaterMap));
+			//add theater to showtime object
+	  		showtimeArray.push(new Showtimes(title, cast, theaters));
 	  }
 	  showtimeArray.sort(compare);
 	  localPlayList();	
 	});
 }
+
+function search(nameKey, array){
+	for(var i = 0; i < array.length; i++){
+		if(array[i].name === nameKey){
+			return i;
+		}
+	}
+
+	return -1;
+}
+
 
 //function that will combine what is playing locally 
 function localPlayList(){
